@@ -1,26 +1,19 @@
-version: '3.8'
-
+version: '3'
 services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - REDIS_HOST=redis
+    depends_on:
+      - redis
+    command: npm run start:dev
+
   redis:
     image: "redis:alpine"
     ports:
       - "6379:6379"
-    networks:
-      - nestjs-network
-
-  ip-lookup-service:
-    build: .
-    ports:
-      - "3000:3000"
-    environment:
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
-    depends_on:
-      - redis
-    networks:
-      - nestjs-network
-
-networks:
-  nestjs-network:
-    driver: bridge
-

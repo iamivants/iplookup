@@ -7,12 +7,12 @@ import { RedisModule } from '@nestjs-modules/ioredis';
   imports: [
     LookupModule,
     RedisModule.forRootAsync({
-      imports: [ConfigModule], // Make sure ConfigModule is imported
+      imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         config: {
-          host: configService.get('REDIS_HOST') || 'localhost', // Default to 'localhost' if not set
-          port: configService.get<number>('REDIS_PORT') || 6379, // Default to 6379 if not set
+          host: configService.get('REDIS_HOST') || 'localhost',
+          port: configService.get<number>('REDIS_PORT') || 6379,
         },
       }),
     }),

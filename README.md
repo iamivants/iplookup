@@ -55,6 +55,10 @@ docker-compose up
 GET /:ip - Look up geolocation information for the given IP address.
 DELETE /:ip - Remove cached geolocation information for the given IP address.
 
+## API Documentation
+
+The Swagger API documentation can be accessed at `http://localhost:3000/api` once the service is running. It provides an interactive UI where you can test out the different endpoints of the IP Lookup Service.
+
 
 ### Built With
 NestJS - The framework used
