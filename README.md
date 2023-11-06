@@ -52,8 +52,8 @@ docker-compose up
 ```
 
 ### Endpoints
-GET /:ip - Look up geolocation information for the given IP address.
-DELETE /:ip - Remove cached geolocation information for the given IP address.
+GET /lookup/:ip - Look up geolocation information for the given IP address.
+DELETE /lookup/:ip - Remove cached geolocation information for the given IP address.
 
 ## API Documentation
 
